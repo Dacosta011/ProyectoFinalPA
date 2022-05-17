@@ -147,7 +147,7 @@ class Ui_MainWindow(object):
         self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_5.addWidget(self.label_6)
-        self.spinBox = QtWidgets.QSpinBox(self.verticalLayoutWidget)
+        self.spinBox = QtWidgets.QLineEdit(self.verticalLayoutWidget)
         self.spinBox.setObjectName("spinBox")
         self.horizontalLayout_5.addWidget(self.spinBox)
         self.verticalLayout.addLayout(self.horizontalLayout_5)

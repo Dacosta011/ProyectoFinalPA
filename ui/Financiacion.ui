@@ -243,7 +243,7 @@ border-radius: 10px;</string>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinBox"/>
+        <widget class="QLineEdit" name="spinBox"/>
        </item>
       </layout>
      </item>

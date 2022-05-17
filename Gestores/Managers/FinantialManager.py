@@ -148,7 +148,7 @@ class FinantialManager(QMainWindow):
                 con = self.conection.conection()
                 cur = con.cursor()
                 cur.callproc("updateFinanciacion", [int(self.ui.Cproyecto.currentText().split("-")[0]), int(
-                    self.ui.Cfuente.currentText().split("-")[0]), int(self.ui.spinBox.value()), int(self.a), int(self.b)])
+                    self.ui.Cfuente.currentText().split("-")[0]), int(self.ui.spinBox.text()), int(self.a), int(self.b)])
                 con.commit()
                 con.close()
                 QMessageBox.information(
@@ -188,7 +188,7 @@ class FinantialManager(QMainWindow):
             for result in cur.stored_results():
                 for (proy, fue, monto) in result:
                     existe = True
-                    self.ui.spinBox.setValue(int(monto))
+                    self.ui.spinBox.setText(str(monto))
                     for i in self.proy:
                         if str(proy) == i.split("-")[0]:
                             self.ui.Cproyecto.setCurrentText(i)

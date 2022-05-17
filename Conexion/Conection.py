@@ -11,7 +11,7 @@ class Conection:
             self.con = connector.connect(
                 host = "localhost",
                 user = "root",
-                passwd = "",
+                passwd = "Vale26candy*",
                 database = "universidad"
             )
             if self.con.is_connected():
