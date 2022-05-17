@@ -194,10 +194,7 @@ class ProjectManager(QMainWindow):
             self.conection.desconection()
         except Exception as e:
             QMessageBox.warning(self, "Error", str(e))
-        if not existe:
-            QMessageBox.warning(
-                self, "Error", f"el proyecto con id {id} no existe!")
-            QTimer.singleShot(0, self.closee)
+        
     
 
 
