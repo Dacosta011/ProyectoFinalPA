@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'c:\Users\PERSONAL\Desktop\ProyectoFinalPA\Departamento.ui'
+# Form implementation generated from reading ui file '/Users/valentinaosoriolopez/Library/CloudStorage/OneDrive-UniversidaddelaSabana/UNIVERSIDAD/9 SEMESTRE/Programación Avanzada/ProyectoFinalPA/ProyectoFinalPA/ui/Departamento.ui'
 #
 # Created by: PyQt6 UI code generator 6.3.0
 #
@@ -12,25 +12,50 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(629, 599)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget_5 = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(10, 240, 781, 51))
+        self.horizontalLayoutWidget_5.setGeometry(QtCore.QRect(20, 240, 591, 51))
         self.horizontalLayoutWidget_5.setObjectName("horizontalLayoutWidget_5")
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_5)
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.Bcrear = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.Bcrear.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Bcrear.setObjectName("Bcrear")
         self.horizontalLayout_6.addWidget(self.Bcrear)
         self.Bbuscar = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.Bbuscar.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Bbuscar.setObjectName("Bbuscar")
         self.horizontalLayout_6.addWidget(self.Bbuscar)
         self.Beliminar = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.Beliminar.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Beliminar.setObjectName("Beliminar")
         self.horizontalLayout_6.addWidget(self.Beliminar)
         self.Bactualizar = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
+        self.Bactualizar.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Bactualizar.setObjectName("Bactualizar")
         self.horizontalLayout_6.addWidget(self.Bactualizar)
         self.Bregresar = QtWidgets.QPushButton(self.horizontalLayoutWidget_5)
@@ -38,10 +63,16 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.Bregresar.setFont(font)
+        self.Bregresar.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(255, 61, 74);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Bregresar.setObjectName("Bregresar")
         self.horizontalLayout_6.addWidget(self.Bregresar)
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(200, 60, 371, 171))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(130, 60, 371, 161))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -50,7 +81,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget)
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Bodoni 72 Oldstyle")
+        font.setPointSize(20)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.horizontalLayout.addWidget(self.label_2)
@@ -62,7 +94,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget)
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Bodoni 72 Oldstyle")
+        font.setPointSize(20)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.horizontalLayout_4.addWidget(self.label_3)
@@ -74,7 +107,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.label_6 = QtWidgets.QLabel(self.verticalLayoutWidget)
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Bodoni 72 Oldstyle")
+        font.setPointSize(20)
         self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_5.addWidget(self.label_6)
@@ -86,7 +120,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.label_5 = QtWidgets.QLabel(self.verticalLayoutWidget)
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Bodoni 72 Oldstyle")
+        font.setPointSize(20)
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
         self.horizontalLayout_3.addWidget(self.label_5)
@@ -95,28 +130,43 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.Cjefe)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.tabla = QtWidgets.QTableWidget(self.centralwidget)
-        self.tabla.setGeometry(QtCore.QRect(20, 300, 771, 251))
+        self.tabla.setGeometry(QtCore.QRect(20, 300, 591, 251))
+        self.tabla.setStyleSheet("background-color: rgb(0, 51, 102, 50);")
         self.tabla.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustToContentsOnFirstShow)
         self.tabla.setObjectName("tabla")
         self.tabla.setColumnCount(4)
         self.tabla.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("Bodoni 72 Oldstyle")
+        item.setFont(font)
         self.tabla.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("Bodoni 72 Oldstyle")
+        item.setFont(font)
         self.tabla.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("Bodoni 72 Oldstyle")
+        item.setFont(font)
         self.tabla.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("Bodoni 72 Oldstyle")
+        item.setFont(font)
         self.tabla.setHorizontalHeaderItem(3, item)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(70, -10, 671, 56))
+        self.label.setGeometry(QtCore.QRect(10, 0, 611, 56))
         font = QtGui.QFont()
+        font.setFamily("Bodoni 72 Oldstyle")
         font.setPointSize(30)
         self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 629, 24))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -136,8 +186,8 @@ class Ui_MainWindow(object):
         self.Bregresar.setText(_translate("MainWindow", "Regresar"))
         self.label_2.setText(_translate("MainWindow", "Id"))
         self.label_3.setText(_translate("MainWindow", "Nombre"))
-        self.label_6.setText(_translate("MainWindow", "Extension"))
-        self.label_5.setText(_translate("MainWindow", "Jefe"))
+        self.label_6.setText(_translate("MainWindow", "Extensión"))
+        self.label_5.setText(_translate("MainWindow", "Jefe del Departamento"))
         item = self.tabla.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Codigo"))
         item = self.tabla.horizontalHeaderItem(1)
@@ -146,4 +196,4 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Extension"))
         item = self.tabla.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Jefe"))
-        self.label.setText(_translate("MainWindow", "Sistema de gestion de departamentos"))
+        self.label.setText(_translate("MainWindow", "Gestión De Departamento"))

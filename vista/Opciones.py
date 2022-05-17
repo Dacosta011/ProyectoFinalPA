@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'c:\Users\PERSONAL\Desktop\ProyectoFinalPA\Opciones.ui'
+# Form implementation generated from reading ui file '/Users/valentinaosoriolopez/Library/CloudStorage/OneDrive-UniversidaddelaSabana/UNIVERSIDAD/9 SEMESTRE/Programación Avanzada/ProyectoFinalPA/ProyectoFinalPA/ui/Opciones.ui'
 #
 # Created by: PyQt6 UI code generator 6.3.0
 #
@@ -12,56 +12,95 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(350, 544)
+        MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(260, 30, 271, 91))
+        self.label.setGeometry(QtCore.QRect(40, 10, 271, 51))
         font = QtGui.QFont()
-        font.setPointSize(50)
+        font.setFamily("Bodoni 72 Oldstyle")
+        font.setPointSize(30)
         self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setObjectName("label")
         self.Bnuevo = QtWidgets.QPushButton(self.centralwidget)
-        self.Bnuevo.setGeometry(QtCore.QRect(260, 130, 271, 71))
+        self.Bnuevo.setGeometry(QtCore.QRect(40, 80, 271, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Bnuevo.setFont(font)
+        self.Bnuevo.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Bnuevo.setObjectName("Bnuevo")
         self.Bbuscar = QtWidgets.QPushButton(self.centralwidget)
-        self.Bbuscar.setGeometry(QtCore.QRect(260, 200, 271, 71))
+        self.Bbuscar.setGeometry(QtCore.QRect(40, 150, 271, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Bbuscar.setFont(font)
+        self.Bbuscar.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Bbuscar.setObjectName("Bbuscar")
         self.Btodos = QtWidgets.QPushButton(self.centralwidget)
-        self.Btodos.setGeometry(QtCore.QRect(260, 270, 271, 71))
+        self.Btodos.setGeometry(QtCore.QRect(40, 220, 271, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Btodos.setFont(font)
+        self.Btodos.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Btodos.setObjectName("Btodos")
         self.Beliminar = QtWidgets.QPushButton(self.centralwidget)
-        self.Beliminar.setGeometry(QtCore.QRect(260, 340, 271, 71))
+        self.Beliminar.setGeometry(QtCore.QRect(40, 290, 271, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Beliminar.setFont(font)
+        self.Beliminar.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Beliminar.setObjectName("Beliminar")
         self.Bactualizar = QtWidgets.QPushButton(self.centralwidget)
-        self.Bactualizar.setGeometry(QtCore.QRect(260, 410, 271, 71))
+        self.Bactualizar.setGeometry(QtCore.QRect(40, 360, 271, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Bactualizar.setFont(font)
+        self.Bactualizar.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(0, 51, 102);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Bactualizar.setObjectName("Bactualizar")
         self.Bregresar = QtWidgets.QPushButton(self.centralwidget)
-        self.Bregresar.setGeometry(QtCore.QRect(260, 480, 271, 71))
+        self.Bregresar.setGeometry(QtCore.QRect(40, 430, 271, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
         self.Bregresar.setFont(font)
+        self.Bregresar.setStyleSheet("border-style: solid;\n"
+"border-width: 1px;\n"
+"border-color: rgb(0, 51, 102);\n"
+"background-color: rgb(255, 61, 74);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;")
         self.Bregresar.setObjectName("Bregresar")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 350, 24))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -74,10 +113,10 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Opciones"))
-        self.label.setText(_translate("MainWindow", "Opciones"))
+        self.label.setText(_translate("MainWindow", "Opciones de Gestión"))
         self.Bnuevo.setText(_translate("MainWindow", "Nuevo"))
         self.Bbuscar.setText(_translate("MainWindow", "Buscar"))
-        self.Btodos.setText(_translate("MainWindow", "VerTodos"))
+        self.Btodos.setText(_translate("MainWindow", "Ver Todos"))
         self.Beliminar.setText(_translate("MainWindow", "Eliminar"))
         self.Bactualizar.setText(_translate("MainWindow", "Actualizar"))
-        self.Bregresar.setText(_translate("MainWindow", "Regrear"))
+        self.Bregresar.setText(_translate("MainWindow", "Regresar"))

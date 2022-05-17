@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>629</width>
     <height>600</height>
    </rect>
   </property>
@@ -14,22 +14,29 @@
    <string>Paticipación Proyecto</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>0</y>
-      <width>571</width>
+      <x>10</x>
+      <y>10</y>
+      <width>611</width>
       <height>56</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>20</pointsize>
+      <family>Bodoni 72 Oldstyle</family>
+      <pointsize>30</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Sistema de gestion de participacion en proyecto</string>
+     <string>Gestión De Participación Proyecto</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QTableWidget" name="tabla">
@@ -37,9 +44,12 @@
      <rect>
       <x>20</x>
       <y>300</y>
-      <width>771</width>
+      <width>591</width>
       <height>251</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 51, 102, 50);</string>
     </property>
     <property name="sizeAdjustPolicy">
      <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
@@ -48,25 +58,40 @@
      <property name="text">
       <string>Profesor</string>
      </property>
+     <property name="font">
+      <font>
+       <family>Bodoni 72 Oldstyle</family>
+      </font>
+     </property>
     </column>
     <column>
      <property name="text">
       <string>Proyecto</string>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bodoni 72 Oldstyle</family>
+      </font>
      </property>
     </column>
     <column>
      <property name="text">
       <string>Horas</string>
      </property>
+     <property name="font">
+      <font>
+       <family>Bodoni 72 Oldstyle</family>
+      </font>
+     </property>
     </column>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>60</y>
+      <x>130</x>
+      <y>80</y>
       <width>371</width>
-      <height>171</height>
+      <height>131</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -76,7 +101,8 @@
         <widget class="QLabel" name="label_2">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Bodoni 72 Oldstyle</family>
+           <pointsize>20</pointsize>
           </font>
          </property>
          <property name="text">
@@ -95,7 +121,8 @@
         <widget class="QLabel" name="label_3">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Bodoni 72 Oldstyle</family>
+           <pointsize>20</pointsize>
           </font>
          </property>
          <property name="text">
@@ -114,7 +141,8 @@
         <widget class="QLabel" name="label_6">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Bodoni 72 Oldstyle</family>
+           <pointsize>20</pointsize>
           </font>
          </property>
          <property name="text">
@@ -132,15 +160,23 @@
    <widget class="QWidget" name="horizontalLayoutWidget_5">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>240</y>
-      <width>781</width>
+      <width>591</width>
       <height>51</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
       <widget class="QPushButton" name="Bcrear">
+       <property name="styleSheet">
+        <string notr="true">border-style: solid;
+border-width: 1px;
+border-color: rgb(0, 51, 102);
+background-color: rgb(0, 51, 102);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+       </property>
        <property name="text">
         <string>Crear</string>
        </property>
@@ -148,6 +184,14 @@
      </item>
      <item>
       <widget class="QPushButton" name="Bbuscar">
+       <property name="styleSheet">
+        <string notr="true">border-style: solid;
+border-width: 1px;
+border-color: rgb(0, 51, 102);
+background-color: rgb(0, 51, 102);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+       </property>
        <property name="text">
         <string>Buscar</string>
        </property>
@@ -155,6 +199,14 @@
      </item>
      <item>
       <widget class="QPushButton" name="Beliminar">
+       <property name="styleSheet">
+        <string notr="true">border-style: solid;
+border-width: 1px;
+border-color: rgb(0, 51, 102);
+background-color: rgb(0, 51, 102);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+       </property>
        <property name="text">
         <string>Eliminar</string>
        </property>
@@ -162,6 +214,14 @@
      </item>
      <item>
       <widget class="QPushButton" name="Bactualizar">
+       <property name="styleSheet">
+        <string notr="true">border-style: solid;
+border-width: 1px;
+border-color: rgb(0, 51, 102);
+background-color: rgb(0, 51, 102);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+       </property>
        <property name="text">
         <string>Actualizar</string>
        </property>
@@ -174,6 +234,14 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-style: solid;
+border-width: 1px;
+border-color: rgb(0, 51, 102);
+background-color: rgb(255, 61, 74);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
        </property>
        <property name="text">
         <string>Regresar</string>
@@ -188,8 +256,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>629</width>
+     <height>24</height>
     </rect>
    </property>
   </widget>

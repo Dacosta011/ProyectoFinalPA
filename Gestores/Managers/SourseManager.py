@@ -3,7 +3,7 @@ from Modelo.Fuente import Fuente
 from PyQt6.QtCore import QTimer
 from PyQt6.QtWidgets import (QApplication, QInputDialog, QMainWindow,
                              QMessageBox, QTableWidgetItem)
-from vista.Fuentes import Ui_MainWindowFuente
+from vista.Fuentes import Ui_MainWindow
 
 
 class SourseManager(QMainWindow):
