@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
+USE universidad;
 --
 -- Base de datos: `universidad`
 --
@@ -421,15 +421,15 @@ ALTER TABLE `departamentos`
 -- Filtros para la tabla `financiacion`
 --
 ALTER TABLE `financiacion`
-  ADD CONSTRAINT `fk_fin_fuente` FOREIGN KEY (`idFuente`) REFERENCES `fuentes` (`idFuente`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_fin_proyecto` FOREIGN KEY (`idProyecto`) REFERENCES `proyectos` (`idProyectos`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_fin_fuente` FOREIGN KEY (`idFuente`) REFERENCES `fuentes` (`idFuente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_fin_proyecto` FOREIGN KEY (`idProyecto`) REFERENCES `proyectos` (`idProyectos`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `participacion_proyecto`
 --
 ALTER TABLE `participacion_proyecto`
-  ADD CONSTRAINT `fk_profesor` FOREIGN KEY (`idProfesor`) REFERENCES `profesores` (`idProfesor`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_proyecto` FOREIGN KEY (`idProyecto`) REFERENCES `proyectos` (`idProyectos`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_profesor` FOREIGN KEY (`idProfesor`) REFERENCES `profesores` (`idProfesor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_proyecto` FOREIGN KEY (`idProyecto`) REFERENCES `proyectos` (`idProyectos`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `profesores`
