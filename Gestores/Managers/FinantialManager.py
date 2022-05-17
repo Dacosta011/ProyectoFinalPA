@@ -141,14 +141,14 @@ class FinantialManager(QMainWindow):
                     self, "Error", "Error al conectar con la base de datos")
 
     def updateFinanciacion(self):
-        if self.ui.spinBox.value() == 0:
+        if self.ui.spinBox.text() == 0:
             QMessageBox.critical(self, "Error", "Debe ingresar un monto")
         else:
             try:
                 con = self.conection.conection()
                 cur = con.cursor()
                 cur.callproc("updateFinanciacion", [int(self.ui.Cproyecto.currentText().split("-")[0]), int(
-                    self.ui.Cfuente.currentText().split("-")[0]), int(self.ui.spinBox.text()), int(self.a), int(self.b)])
+                    self.ui.Cfuente.currentText().split("-")[0]), int(self.ui.spinBox.text()), int(self.a[0]), int(self.b[0])])
                 con.commit()
                 con.close()
                 QMessageBox.information(
