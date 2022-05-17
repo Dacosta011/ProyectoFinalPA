@@ -1,6 +1,6 @@
 from Conexion.Conection import Conection
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox, QTableWidgetItem, QInputDialog
-
+from PyQt6.QtCore import QTimer
 from vista.ParticipacionProy import Ui_MainWindow
 
 class ProjectPartiManager(QMainWindow):
@@ -154,13 +154,14 @@ class ProjectPartiManager(QMainWindow):
         if prof is False:
             prof = self.ui.Cprofesor.currentText().split("-")[0]
             proy = self.ui.Cproyecto.currentText().split("-")[0]
-        
+        existe=False
         try:
             con = self.conection.conection()
             cur = con.cursor()
             cur.callproc("searchPartiProy", (prof, proy))
             for result in cur.stored_results():
                 for (prof,proy,horas) in result:
+                    existe=True
                     self.ui.spinBox.setValue(int(horas))
                     for i in self.proy:
                         if i.split("-")[0] == str(proy):
@@ -173,6 +174,10 @@ class ProjectPartiManager(QMainWindow):
         except Exception as e:
             print(e)
             QMessageBox.critical(self, "Error", "Error al conectar con la base de datos")
+        if not existe:
+            QMessageBox.warning(
+                self, "Error", f"la participación del profesor {prof} con el proyecto {proy} no existe!")
+            QTimer.singleShot(0, self.closee)
 
 
 

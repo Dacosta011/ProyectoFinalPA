@@ -1,8 +1,10 @@
-from Modelo.Fuente import Fuente
 from Conexion.Conection import Conection
-from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox, QTableWidgetItem, QInputDialog
-
+from Modelo.Fuente import Fuente
+from PyQt6.QtCore import QTimer
+from PyQt6.QtWidgets import (QApplication, QInputDialog, QMainWindow,
+                             QMessageBox, QTableWidgetItem)
 from vista.Profesores import Ui_MainWindow
+
 
 class TeacherManager(QMainWindow):
     def __init__(self, modee):
@@ -176,6 +178,7 @@ class TeacherManager(QMainWindow):
                 QMessageBox.warning(self, "Error", "Error al eliminar el profesor")
     
     def searchTeacher(self, id = None):
+        existe=False
         if id == False:
             id = self.ui.Sid.value()
         else:
@@ -185,6 +188,7 @@ class TeacherManager(QMainWindow):
                 cur.callproc("getProfesor",[id])
                 for results in cur.stored_results():
                     for (id,nom,dir,tel,pro) in results:
+                        existe=True
                         self.ui.Sid.setValue(int(id))
                         self.ui.Lnombre.setText(nom)
                         self.ui.Ldir.setText(dir)
@@ -199,6 +203,11 @@ class TeacherManager(QMainWindow):
             except Exception as e:
                 print(e)
                 QMessageBox.warning(self, "Error", "Error al obtener el profesor")
+            if not existe:
+                QMessageBox.warning(
+                self, "Error", f"el profesor con id {id} no existe!")
+                QTimer.singleShot(0, self.closee)
+            
     
     def closee(self):
         self.close()
