@@ -148,6 +148,7 @@ class SourseManager(QMainWindow):
                 QMessageBox.information(self, "Información", "Fuente creada")
                 self.conection.desconection()
                 self.getAllFuentes()
+            
             except Exception as e:
                 QMessageBox.information(self, "Información", "Error al crear la fuente")
                 print(e)

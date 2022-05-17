@@ -1,5 +1,6 @@
 from genericpath import exists
 from Conexion.Conection import Conection
+from mysql.connector import Error, errorcode
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox, QTableWidgetItem, QInputDialog
 from PyQt6.QtCore import QTimer
 from vista.Financiacion import Ui_MainWindow
@@ -117,17 +118,23 @@ class FinantialManager(QMainWindow):
         if self.ui.spinBox.value() == 0:
             QMessageBox.critical(self, "Error", "Debe ingresar un monto")
         else:
+            proy = self.ui.Cproyecto.currentText().split(
+                "-")[0]
+            fuente = self.ui.Cfuente.currentText().split("-")[0]
             try:
                 con = self.conection.conection()
                 cur = con.cursor()
-                cur.callproc("createFinanciacion", (int(self.ui.Cproyecto.currentText().split(
-                    "-")[0]), int(self.ui.Cfuente.currentText().split("-")[0]), int(self.ui.spinBox.value())))
+                cur.callproc("createFinanciacion", (int(proy), int(
+                    fuente), int(self.ui.spinBox.value())))
                 con.commit()
                 con.close()
                 QMessageBox.information(
                     self, "Información", "Financiación registrada")
                 self.getAllFinanciacion()
-
+            except Error as err:
+                if err.errno == errorcode.ER_DUP_ENTRY:
+                    QMessageBox.warning(
+                        self, "Error", f"El proyecto {proy} ya tiene la fuente {fuente}!")
             except Exception as e:
                 print(e)
                 QMessageBox.critical(
