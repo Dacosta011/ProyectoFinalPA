@@ -9,7 +9,7 @@ from vista.Fuentes import Ui_MainWindow
 class SourseManager(QMainWindow):
     def __init__(self, modee):
         super(SourseManager, self).__init__()
-        self.ui = Ui_MainWindowFuente()
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
         self.ui.Bbuscar.clicked.connect(self.searchFuente)
