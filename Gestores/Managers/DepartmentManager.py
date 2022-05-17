@@ -156,7 +156,7 @@ class DepartamentoManager(QMainWindow):
                 con = self.conection.conection()
                 cur = con.cursor()
                 cur.callproc("updateDepartamento", [self.ui.Sid.value(), self.ui.Lnombre.text(
-                ), self.ui.Lextension.text(), self.ui.Cjefe.currentText(), self.ui.Sid.value()])
+                ), self.ui.Lextension.text(), self.ui.Cjefe.currentText().split("-")[0] , self.ui.Sid.value()])
                 con.commit()
                 QMessageBox.information(
                     self, "Información", "Departamento actualizado")
