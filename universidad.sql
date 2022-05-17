@@ -202,7 +202,7 @@ CREATE TABLE `departamentos` (
 --
 
 INSERT INTO `departamentos` (`idDepartamentos`, `Nombre`, `Extension`, `Jefe`) VALUES
-(1, 'Depto 1', '2501', 0),
+(1, 'Depto 1', '2501', 3),
 (2, 'calculo', '2502', 1),
 (3, 'contabilidad', '798456', 1),
 (4, 'ingenieria', '789456132', 2);
@@ -269,10 +269,8 @@ CREATE TABLE `participacion_proyecto` (
 --
 
 INSERT INTO `participacion_proyecto` (`idProfesor`, `idProyecto`, `Horas`) VALUES
-(0, 2, 0),
-(1, 1, 10),
-(1, 2, 15),
-(2, 1, 3);
+(1, 2, 2),
+(2, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -293,10 +291,10 @@ CREATE TABLE `profesores` (
 --
 
 INSERT INTO `profesores` (`idProfesor`, `Nombre`, `Direccion`, `Telefono`, `Programa`) VALUES
-(0, 'vale', 'calle 98', '7945163', 1),
-(1, 'julian ', 'calle 5', '789456', 1),
-(2, 'ana ', 'calle 78', '3165334569', 1),
-(3, 'luis beltran ', 'calle 9 # 2-27', '3196034036', 1);
+(1, 'vale', 'calle 98', '7945163', 1),
+(2, 'julian ', 'calle 5', '789456', 1),
+(3, 'ana ', 'calle 78', '3165334569', 1),
+(4, 'luis beltran ', 'calle 9 # 2-27', '3196034036', 1);
 
 -- --------------------------------------------------------
 
@@ -340,8 +338,8 @@ CREATE TABLE `proyectos` (
 --
 
 INSERT INTO `proyectos` (`idProyectos`, `Nombre`, `Presupuesto`, `Fecha_inicio`, `Lider`) VALUES
-(1, 'siga', 2000000, '0000-00-00', 2),
-(2, 'app unisabana', 3000000, '2020-06-12', 0),
+(1, 'siga', 2000000, '0000-00-00', 4),
+(2, 'app unisabana', 3000000, '2020-06-12', 2),
 (3, 'Exodo', 750000, '2022-05-11', 3);
 
 --
