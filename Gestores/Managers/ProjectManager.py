@@ -150,9 +150,12 @@ class ProjectManager(QMainWindow):
         try:
             con = self.conection.conection()
             cur = con.cursor()
-            cur.callproc("updateProyecto", (self.ui.Sid.value(),self.ui.Sid.value(),self.ui.Lnombre.text(), int(self.ui.Lpresupuesto.text()), self.ui.dateEdit.text(), int(self.ui.Clider.currentText().split("-")[0])))
+            fecha = self.ui.dateEdit.text()
+            f = fecha.split("/")[::-1]
+            fecha = f[0] + "-" + f[1] + "-" + f[2]
+            cur.callproc("updateProyecto", (self.ui.Sid.value(),self.ui.Sid.value(),self.ui.Lnombre.text(), int(self.ui.Lpresupuesto.text()), fecha, int(self.ui.Clider.currentText().split("-")[0])))
             con.commit()
-            QMessageBox.information(self, "Información", "Proyecto creado")
+            QMessageBox.information(self, "Información", "Proyecto actualizado")
             self.conection.desconection()
             self.getAllProyectos()
             
