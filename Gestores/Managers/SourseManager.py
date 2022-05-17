@@ -1,8 +1,10 @@
-from Modelo.Fuente import Fuente
 from Conexion.Conection import Conection
-from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox, QTableWidgetItem, QInputDialog
-
+from Modelo.Fuente import Fuente
+from PyQt6.QtCore import QTimer
+from PyQt6.QtWidgets import (QApplication, QInputDialog, QMainWindow,
+                             QMessageBox, QTableWidgetItem)
 from vista.Fuentes import Ui_MainWindowFuente
+
 
 class SourseManager(QMainWindow):
     def __init__(self, modee):
@@ -113,12 +115,14 @@ class SourseManager(QMainWindow):
     def searchFuente(self, id = None):
         if id == False:    
             id = self.ui.Sid.value()
+        existe=False
         try:
             con = self.conection.conection()
             cur = con.cursor()
             cur.callproc("getFuentes", [int(id)])
             for results in cur.stored_results():
                 for (id,nombre, direccion, telefono) in results:
+                    existe=True
                     self.ui.Sid.setValue(int(id))
                     self.ui.Lnombre.setText(str(nombre))
                     self.ui.Ldir.setText(str(direccion))
@@ -127,6 +131,10 @@ class SourseManager(QMainWindow):
         except Exception as e:
             QMessageBox.information(self, "Información", "Error al obtener la fuente")
             print(e)
+        if not existe:
+            QMessageBox.warning(
+                self, "Error", f"la fuente con id {id} no existe!")
+            QTimer.singleShot(0, self.closee)
     
     def newFuente(self):
         if self.ui.Lnombre.text() == "" or self.ui.Ldir.text() == "" or self.ui.Ltel.text() == "":
@@ -140,6 +148,7 @@ class SourseManager(QMainWindow):
                 QMessageBox.information(self, "Información", "Fuente creada")
                 self.conection.desconection()
                 self.getAllFuentes()
+            
             except Exception as e:
                 QMessageBox.information(self, "Información", "Error al crear la fuente")
                 print(e)

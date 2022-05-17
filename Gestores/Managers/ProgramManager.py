@@ -1,7 +1,9 @@
+from genericpath import exists
 from Conexion.Conection import Conection
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox, QTableWidgetItem, QInputDialog
-
+from PyQt6.QtCore import QTimer
 from vista.Programa import Ui_MainWindow
+
 
 class ProgramManager(QMainWindow):
     def __init__(self, modee):
@@ -20,10 +22,10 @@ class ProgramManager(QMainWindow):
         self.setup()
         self.modee()
         self.getAllProgramas()
-    
+
     def closee(self):
         self.close()
-    
+
     def modee(self):
         if self.mode == "new":
             self.ui.Bcrear.setDisabled(False)
@@ -38,7 +40,8 @@ class ProgramManager(QMainWindow):
             self.ui.Bbuscar.setDisabled(True)
             self.ui.Beliminar.setDisabled(True)
             self.ui.Sid.setDisabled(True)
-            a = QInputDialog.getText(self, "Información", "Ingrese el id del departamento que desea modificar")
+            a = QInputDialog.getText(
+                self, "Información", "Ingrese el id del departamento que desea modificar")
             self.searchPrograma(int(a[0]))
         elif self.mode == "delete":
             self.ui.Beliminar.setDisabled(False)
@@ -68,7 +71,7 @@ class ProgramManager(QMainWindow):
             self.ui.Cdepartamento.setDisabled(True)
             self.ui.Sid.setDisabled(True)
             self.ui.Cdirector.setDisabled(True)
-    
+
     def setup(self):
         try:
             con = self.conection.conection()
@@ -76,13 +79,13 @@ class ProgramManager(QMainWindow):
             cur.callproc("allDepartamentos")
             self.depa = []
             for result in cur.stored_results():
-                for (id,nom,ext,jefe) in result:
+                for (id, nom, ext, jefe) in result:
                     self.depa.append(str(id)+"-"+nom)
                     self.ui.Cdepartamento.addItem(str(id)+"-"+nom)
             cur.callproc("allProfesores")
             self.prof = []
             for result in cur.stored_results():
-                for (id,nom,dir,tel,pro) in result:
+                for (id, nom, dir, tel, pro) in result:
                     self.prof.append(str(id)+"-"+nom)
                     self.ui.Cdirector.addItem(str(id)+"-"+nom)
             con.close()
@@ -106,20 +109,22 @@ class ProgramManager(QMainWindow):
             QMessageBox.critical(self, "Error", "Error al obtener el id")
 
     def newPrograma(self):
-        if self.ui.Lnombre.text() == "" or self.ui.Ltelefono.text() == "": 
+        if self.ui.Lnombre.text() == "" or self.ui.Ltelefono.text() == "":
             QMessageBox.critical(self, "Error", "Faltan datos")
         else:
             try:
                 con = self.conection.conection()
                 cur = con.cursor()
-                cur.callproc("insertPrograma", [self.ui.Sid.value(), self.ui.Lnombre.text(), self.ui.Ltelefono.text(), self.ui.Cdirector.currentText().split("-")[0], self.ui.Cdepartamento.currentText().split("-")[0]])
+                cur.callproc("insertPrograma", [self.ui.Sid.value(), self.ui.Lnombre.text(), self.ui.Ltelefono.text(
+                ), self.ui.Cdirector.currentText().split("-")[0], self.ui.Cdepartamento.currentText().split("-")[0]])
                 con.commit()
                 con.close()
                 QMessageBox.information(self, "Información", "Programa creado")
                 self.getAllProgramas()
             except Exception as e:
                 print(e)
-                QMessageBox.critical(self, "Error", "Error al crear el programa")
+                QMessageBox.critical(
+                    self, "Error", "Error al crear el programa")
 
     def updatePrograma(self):
         if self.ui.Lnombre.text() == "" or self.ui.Ltelefono.text() == "":
@@ -128,15 +133,18 @@ class ProgramManager(QMainWindow):
             try:
                 con = self.conection.conection()
                 cur = con.cursor()
-                cur.callproc("updatePrograma", (self.ui.Sid.value(),self.ui.Sid.value(), self.ui.Lnombre.text(), self.ui.Ltelefono.text(), self.ui.Cdirector.currentText().split("-")[0], self.ui.Cdepartamento.currentText().split("-")[0]))
+                cur.callproc("updatePrograma", (self.ui.Sid.value(), self.ui.Sid.value(), self.ui.Lnombre.text(), self.ui.Ltelefono.text(
+                ), self.ui.Cdirector.currentText().split("-")[0], self.ui.Cdepartamento.currentText().split("-")[0]))
                 con.commit()
                 con.close()
-                QMessageBox.information(self, "Información", "Programa actualizado")
+                QMessageBox.information(
+                    self, "Información", "Programa actualizado")
                 self.getAllProgramas()
             except Exception as e:
                 print(e)
-                QMessageBox.critical(self, "Error", "Error al actualizar el programa")
-    
+                QMessageBox.critical(
+                    self, "Error", "Error al actualizar el programa")
+
     def deletePrograma(self):
         try:
             con = self.conection.conection()
@@ -148,17 +156,20 @@ class ProgramManager(QMainWindow):
             self.getAllProgramas()
         except Exception as e:
             print(e)
-            QMessageBox.critical(self, "Error", "Error al eliminar el programa")
+            QMessageBox.critical(
+                self, "Error", "Error al eliminar el programa")
 
-    def searchPrograma(self,id=None):
+    def searchPrograma(self, id=None):
         if id is False:
             id = self.ui.Sid.value()
+        existe = False
         try:
             con = self.conection.conection()
             cur = con.cursor()
             cur.callproc("getPrograma", [id])
             for result in cur.stored_results():
-                for (id,nom,tel,dir,dep) in result:
+                for (id, nom, tel, dir, dep) in result:
+                    existe = True
                     self.ui.Sid.setValue(int(id))
                     self.ui.Lnombre.setText(nom)
                     self.ui.Ltelefono.setText(tel)
@@ -177,6 +188,10 @@ class ProgramManager(QMainWindow):
         except Exception as e:
             print(e)
             QMessageBox.critical(self, "Error", "Error al buscar el programa")
+        if not existe:
+            QMessageBox.warning(
+                self, "Error", f"el programa con id {id} no existe!")
+            QTimer.singleShot(0, self.closee)
 
     def getAllProgramas(self):
         try:
@@ -190,7 +205,7 @@ class ProgramManager(QMainWindow):
             fila = 0
 
             for result in cur.stored_results():
-                for (id,nom,tel,dir,dep) in result:
+                for (id, nom, tel, dir, dep) in result:
                     self.ui.tabla.insertRow(fila)
                     self.ui.tabla.setItem(fila, 0, QTableWidgetItem(str(id)))
                     self.ui.tabla.setItem(fila, 1, QTableWidgetItem(nom))
@@ -200,10 +215,12 @@ class ProgramManager(QMainWindow):
                     fila += 1
             con.close()
             if fila == 0:
-                QMessageBox.information(self, "Información", "No hay programas")
+                QMessageBox.information(
+                    self, "Información", "No hay programas")
         except Exception as e:
             print(e)
-            QMessageBox.critical(self, "Error", "Error al obtener los programas")
-    
+            QMessageBox.critical(
+                self, "Error", "Error al obtener los programas")
+
     def closee(self):
         self.close()

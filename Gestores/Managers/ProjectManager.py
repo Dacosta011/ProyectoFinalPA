@@ -1,6 +1,7 @@
+from genericpath import exists
 from Conexion.Conection import Conection
 from PyQt6.QtWidgets import QMainWindow, QApplication, QMessageBox, QTableWidgetItem, QInputDialog
-
+from PyQt6.QtCore import QTimer
 from vista.Proyecto import Ui_MainWindow
 
 class ProjectManager(QMainWindow):
@@ -173,6 +174,7 @@ class ProjectManager(QMainWindow):
     def searchProyecto(self, id = None):
         if id is False:
             id = self.ui.Sid.value()
+        existe=False
         try:
             con = self.conection.conection()
             cur = con.cursor()
@@ -192,6 +194,10 @@ class ProjectManager(QMainWindow):
             self.conection.desconection()
         except Exception as e:
             QMessageBox.warning(self, "Error", str(e))
+        if not existe:
+            QMessageBox.warning(
+                self, "Error", f"el proyecto con id {id} no existe!")
+            QTimer.singleShot(0, self.closee)
     
 
 
